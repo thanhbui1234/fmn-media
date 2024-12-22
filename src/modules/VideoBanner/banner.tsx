@@ -6,15 +6,19 @@ import React from "react";
 
 const Banner: React.FC = () => {
   return (
-    <div id="home" className="relative h-screen w-full  overflow-hidden">
+    <div
+      id="home"
+      className="relative h-screen   overflow-hidden scroll-snap-y scroll-snap-mandatory overflow-y-auto w-auto"
+    >
       <video
+        style={{ objectFit: "cover" }}
         autoPlay
         loop
         muted
-        className="absolute top-0 left-0 h-full w-full object-cover"
+        className="videoBanner absolute top-0 left-0 h-svh md:h-auto object-cover"
         onError={(e) => {
-          e.currentTarget.style.display = 'none';
-          e.currentTarget.parentElement!.style.backgroundColor = 'black';
+          e.currentTarget.style.display = "none";
+          e.currentTarget.parentElement!.style.backgroundColor = "black";
         }}
       >
         <source src="/assets/defaultBanner.mp4" type="video/mp4" />

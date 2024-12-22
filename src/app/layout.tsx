@@ -4,6 +4,7 @@ import { Reem_Kufi } from "next/font/google";
 import "./globals.css";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
+import Banner from "@/modules/VideoBanner/banner";
 
 
 const reemKufi = Reem_Kufi({
@@ -25,13 +26,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${reemKufi.variable} font-sans flex flex-col `}>
-        <div className="bg-gray-100 w-screen h-screen"> 
-          <h2>ccc</h2>
+        <div className="bg-gray-100 w-screen h-screen z-[100]">
+         <Banner />
         </div>
         <SidebarProvider>
-          <AppSidebar />
-          {/* <SidebarTrigger /> */}
-          {children}
+          {/* <div
+            id="b"
+            className="scroll-snap-y scroll-snap-mandatory overflow-y-auto w-full"
+          > */}
+            <AppSidebar />
+            {children}
+          {/* </div> */}
         </SidebarProvider>
       </body>
     </html>

@@ -24,6 +24,13 @@ section {
   height: 100vh; /* Mỗi phần tử sẽ chiếm toàn bộ chiều cao màn hình */
   scroll-snap-align: start; /* Các phần tử sẽ "dính" vào đầu khi cuộn */
 }
+.videoBanner {
+  @media screen and (min-width: 1024px) {
+    height: 100% !important;
+    width: 100% !important;
+    overflow: hidden !important; /* Prevent scrolling */
+  }
+}
 
 @layer base {
   :root {
