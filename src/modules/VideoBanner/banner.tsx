@@ -6,7 +6,7 @@ import React from "react";
 
 const Banner: React.FC = () => {
   return (
-    <div className="relative h-screen w-full overflow-hidden">
+    <div id="home" className="relative h-screen w-full  overflow-hidden">
       <video
         autoPlay
         loop
