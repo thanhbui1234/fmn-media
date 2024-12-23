@@ -1,5 +1,5 @@
 "use client";
-
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { useState } from "react";
 import { Link as ScrollLink } from "react-scroll";
 
@@ -21,6 +21,7 @@ const items = [
   { title: "Calendar", target: "calendar" },
   { title: "Search", target: "search" },
   { title: "Settings", target: "settings" },
+  { title: "FMN MEDIA ALL RIGHT RESERVED", target: "logout" },
 ];
 
 export function AppSidebar() {
@@ -34,12 +35,20 @@ export function AppSidebar() {
     <Sidebar className="w-[20%]">
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>FMN</SidebarGroupLabel>
+          <SidebarGroupLabel className="flex flex-col gap-3">
+            <p className="text-4xl font-bold text-black">Hello kitty</p>
+            <div className="text-black flex gap-3">
+              <FaFacebook size={19} />
+              <FaTwitter size={19} />
+              <FaInstagram size={19} />
+              <FaLinkedin size={19} />
+            </div>
+          </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
-                <SidebarMenuItem  key={item.title}>
-                  <SidebarMenuButton className="cursor-pointer" asChild>
+                <SidebarMenuItem key={item.title}>
+                  <SidebarMenuButton className="cursor-pointer p-10 " asChild>
                     <ScrollLink
                       to={item.target}
                       smooth={true} // Enables smooth scrolling
@@ -47,13 +56,19 @@ export function AppSidebar() {
                       spy={true} // Watches for the active section
                       offset={-50} // Adjust to account for fixed headers
                       activeClass="active-link" // Class for the active link
-                      className={`flex justify-center items-center space-x-2 p-2 rounded-md hover:bg-gray-200 ${
-                        activeItem === item.target ? "bg-gray-300" : ""
+                      className={`flex  space-x-2 p-2  hover:bg-[#080404] active:bg-[#080404] group  ${
+                        activeItem === item.target ? "bg-[#080404] " : ""
                       }`}
                       onSetActive={() => handleSetActive(item.target)} // Set active item on scroll
                       onClick={() => handleSetActive(item.target)} // Set active item on click
                     >
-                      <span>{item.title}</span>
+                      <span
+                        className={`text-[20px]  text-[#ccc]  ${
+                          activeItem === item.target ? "text-[#ffcc00]" : ""
+                        } `}
+                      >
+                        {item.title}
+                      </span>
                     </ScrollLink>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
