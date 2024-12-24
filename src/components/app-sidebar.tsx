@@ -16,8 +16,8 @@ import {
 
 // Menu items with scroll targets.
 const items = [
-  { title: "Home", target: "home" },
-  { title: "Inbox", target: "inbox" },
+  { title: "Home", target: "div1" },
+  { title: "Inbox", target: "div2" },
   { title: "Calendar", target: "calendar" },
   { title: "Search", target: "search" },
   { title: "Settings", target: "settings" },
@@ -36,7 +36,7 @@ export function AppSidebar() {
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel className="flex flex-col gap-3">
-            <p className="text-4xl font-bold text-black">Hello kitty</p>
+            <p className="text-2xl font-bold text-black">Hello kitty</p>
             <div className="text-black flex gap-3">
               <FaFacebook size={19} />
               <FaTwitter size={19} />
@@ -47,7 +47,7 @@ export function AppSidebar() {
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
+                <SidebarMenuItem className="" key={item.title}>
                   <SidebarMenuButton className="cursor-pointer p-10 " asChild>
                     <ScrollLink
                       to={item.target}
@@ -57,13 +57,13 @@ export function AppSidebar() {
                       offset={-50} // Adjust to account for fixed headers
                       activeClass="active-link" // Class for the active link
                       className={`flex  space-x-2 p-2  hover:bg-[#080404] active:bg-[#080404] group  ${
-                        activeItem === item.target ? "bg-[#080404] " : ""
+                        activeItem === item.target ? "" : ""
                       }`}
                       onSetActive={() => handleSetActive(item.target)} // Set active item on scroll
                       onClick={() => handleSetActive(item.target)} // Set active item on click
                     >
                       <span
-                        className={`text-[20px]  text-[#ccc]  ${
+                        className={`text-[20px]  text-[#ccc]   ${
                           activeItem === item.target ? "text-[#ffcc00]" : ""
                         } `}
                       >

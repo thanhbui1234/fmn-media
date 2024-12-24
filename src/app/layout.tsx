@@ -26,9 +26,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${reemKufi.variable} font-sans flex flex-col `}>
-        <div className="bg-gray-100 w-screen h-screen z-[100]">
+        <div className="bg-gray-100 w-screen h-screen ">
          <Banner />
         </div>
+        <div className="relative w-screen h-screen">
         <SidebarProvider>
           {/* <div
             id="b"
@@ -38,6 +39,7 @@ export default function RootLayout({
             {children}
           {/* </div> */}
         </SidebarProvider>
+        </div>
       </body>
     </html>
   );
