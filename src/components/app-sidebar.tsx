@@ -12,7 +12,6 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import Link from "next/link";
 
 // Menu items with scroll targets.
 const items = [
@@ -27,8 +26,12 @@ const items = [
 export function AppSidebar() {
   const [activeItem, setActiveItem] = useState<string>("");
 
-  const handleSetActive = (target: string) => {
-    setActiveItem(target);
+  const handleScroll = (target: string) => {
+    const element = document.getElementById(target);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+      setActiveItem(target);
+    }
   };
 
   return (
@@ -48,29 +51,17 @@ export function AppSidebar() {
             <SidebarMenu>
               {items.map((item) => (
                 <SidebarMenuItem className="" key={item.title}>
-                  <SidebarMenuButton className="cursor-pointer p-10 " asChild>
-                    <Link 
-                    href={`hi`}
-                      //   to={item.target}
-                      //   smooth={true} // Enables smooth scrolling
-                      //   duration={100} // Duration of scroll in ms
-                      //   spy={true} // Watches for the active section
-                      //   offset={-50} // Adjust to account for fixed headers
-                      //   activeClass="active-link" // Class for the active link
-                      className={`flex  space-x-2 p-2  hover:bg-[#080404] active:bg-[#080404] group  ${
-                        activeItem === item.target ? "" : ""
+                  <SidebarMenuButton
+                    className="cursor-pointer p-10"
+                    onClick={() => handleScroll(item.target)}
+                  >
+                    <span
+                      className={`text-[20px] text-[#ccc] ${
+                        activeItem === item.target ? "text-[#ffcc00]" : ""
                       }`}
-                      //   onSetActive={() => handleSetActive(item.target)} // Set active item on scroll
-                      onClick={() => handleSetActive(item.target)} // Set active item on click
                     >
-                      <span
-                        className={`text-[20px]  text-[#ccc]   ${
-                          activeItem === item.target ? "text-[#ffcc00]" : ""
-                        } `}
-                      >
-                        {item.title}
-                      </span>
-                    </Link>
+                      {item.title}
+                    </span>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}

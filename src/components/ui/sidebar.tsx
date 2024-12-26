@@ -404,7 +404,7 @@ const SidebarContent = React.forwardRef<
       ref={ref}
       data-sidebar="content"
       className={cn(
-        "flex min-h-0 w-[250px] flex-1 border-r border-r-[#ffcc00] flex-col gap-2 overflow-auto group-data-[collapsible=icon]:overflow-hidden bg-[#111111]",
+        "flex min-h-0 w-[250px] flex-1 border-r border-r-[#ffcc00] flex-col gap-2 overflow-auto group-data-[collapsible=icon]:overflow-hidden bg-[#111111] overflow-hidden",
         className
       )}
       {...props}
