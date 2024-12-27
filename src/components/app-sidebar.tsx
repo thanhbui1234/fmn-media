@@ -17,8 +17,8 @@ import {
 const items = [
   { title: "Home", target: "div1" },
   { title: "Inbox", target: "div2" },
-  { title: "Calendar", target: "calendar" },
-  { title: "Search", target: "search" },
+  { title: "Calendar", target: "div3" },
+  { title: "Search", target: "div4" },
   { title: "Settings", target: "settings" },
   { title: "FMN MEDIA ALL RIGHT RESERVED", target: "logout" },
 ];
@@ -52,7 +52,7 @@ export function AppSidebar() {
               {items.map((item) => (
                 <SidebarMenuItem className="" key={item.title}>
                   <SidebarMenuButton
-                    className="cursor-pointer p-10"
+                    className="cursor-pointer p-10 hover:bg-black  hover:text-[#ffcc00] active:bg-black active:text-[#ffcc00]"
                     onClick={() => handleScroll(item.target)}
                   >
                     <span

@@ -14,7 +14,7 @@ const Banner: React.FC = () => {
         autoPlay
         loop
         muted
-        className="videoBanner relative top-0 left-0 h-svh md:h-auto object-cover"
+        className="videoBanner relative top-0 left-0 h-svh lg:h-auto object-cover"
         onError={(e) => {
           e.currentTarget.style.display = "none";
           e.currentTarget.parentElement!.style.backgroundColor = "black";

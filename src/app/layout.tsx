@@ -5,6 +5,7 @@ import "./globals.css";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import Banner from "@/modules/VideoBanner/banner";
+import { HeaderMolbie } from "@/components/ui/header";
 
 const reemKufi = Reem_Kufi({
   subsets: ["latin"],
@@ -25,6 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${reemKufi.variable} font-sans flex flex-col `}>
+        <HeaderMolbie />
         <div className="bg-gray-100 w-screen h-screen ">
           <Banner />
         </div>
