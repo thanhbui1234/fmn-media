@@ -506,7 +506,7 @@ const SidebarMenuItem = React.forwardRef<
     ref={ref}
     data-sidebar="menu-item"
     className={cn(
-      "group/menu-item relative border-b-[0.1px] border-y-gray-500  p-4  hover:bg-black",
+      "group/menu-item relative border-b-[0.1px] border-y-gray-500   hover:bg-black",
       className
     )}
     {...props}

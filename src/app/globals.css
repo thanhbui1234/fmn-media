@@ -12,6 +12,10 @@ body {
   scroll-behavior: smooth; /* Cuộn mượt mà */
 }
 
+.fontText {
+  font-family: 'Inconsolata', monospace !important;
+}
+
 body::-webkit-scrollbar {
   display: none;
 }

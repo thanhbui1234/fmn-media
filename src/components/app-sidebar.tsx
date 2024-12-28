@@ -1,6 +1,6 @@
 "use client";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import {
   Sidebar,
@@ -26,6 +26,7 @@ const items = [
 export function AppSidebar() {
   const [activeItem, setActiveItem] = useState<string>("");
 
+  // Scroll to the target section and update active state
   const handleScroll = (target: string) => {
     const element = document.getElementById(target);
     if (element) {
@@ -34,8 +35,31 @@ export function AppSidebar() {
     }
   };
 
+  // Optional: Automatically update activeItem based on scroll position
+  useEffect(() => {
+    const handleScrollPosition = () => {
+      items.forEach((item) => {
+        const element = document.getElementById(item.target);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          console.log(rect);
+          
+          // Check if the element is in the viewport
+          if (rect.top >= 0 && rect.top <= window.innerHeight / 2) {
+            setActiveItem(item.target);
+          }
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScrollPosition);
+    return () => {
+      window.removeEventListener("scroll", handleScrollPosition);
+    };
+  }, []);
+
   return (
-    <Sidebar className="w-[20%]">
+    <Sidebar className="">
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel className="flex flex-col gap-3">
@@ -50,14 +74,20 @@ export function AppSidebar() {
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
-                <SidebarMenuItem className="" key={item.title}>
+                <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton
-                    className="cursor-pointer p-10 hover:bg-black  hover:text-[#ffcc00] active:bg-black active:text-[#ffcc00]"
+                    className={`cursor-pointer p-10 hover:bg-black hover:text-[#ffcc00] active:bg-black active:text-[#ffcc00] ${
+                      activeItem === item.target
+                        ? "bg-black text-[#ffcc00]"
+                        : ""
+                    }`}
                     onClick={() => handleScroll(item.target)}
                   >
                     <span
-                      className={`text-[20px] text-[#ccc] ${
-                        activeItem === item.target ? "text-[#ffcc00]" : ""
+                      className={`text-[20px] ${
+                        activeItem === item.target
+                          ? "text-[#ffcc00]"
+                          : "text-[#ccc]"
                       }`}
                     >
                       {item.title}
