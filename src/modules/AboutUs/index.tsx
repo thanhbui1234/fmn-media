@@ -13,7 +13,7 @@ const AboutUs = () => {
   return (
     <section
       id="div1"
-      className="snap-start h-[104vh] flex flex-col xl:flex-row gap-12 bg-black border-y border-y-[#ffcc00] px-10 xl:pl-[300px]"
+      className="snap-start  flex flex-col md:flex-row gap-12 bg-black border-y border-y-[#ffcc00] px-10 xl:pl-[300px] h-[1100px] sm:h-[1000px] md:h-auto  "
     >
       <div className="w-[600px] flex flex-col pt-12">
         <h3 className="text-white text-3xl pb-3">Hello! We are</h3>
@@ -25,7 +25,7 @@ const AboutUs = () => {
           Next generation
         </p>
 
-        <p className="text-[16px] pt-7 text-[#ccc] fontText w-[450px] xl:w-full">
+        <p className="text-[16px] pt-7 text-[#ccc] fontText w-[300px] sm:w-[450px] xl:w-full">
           Founded in 2020 and quickly grown to become one of VietNam&apos;s
           leading teams with significant achievements in the media and
           entertainment industry, we proudly produce excellent projects with
@@ -35,18 +35,18 @@ const AboutUs = () => {
           , and{" "}
           <span className="text-colorTop">a fierce commitment to quality.</span>
         </p>
-        <p className="text-[16px] pt-7 text-[#ccc] fontText w-[450px] xl:w-full">
+        <p className="text-[16px] pt-7 text-[#ccc] fontText w-[300px] sm:w-[450px] xl:w-full">
           While based in Ho Chi Minh City, we provide high-quality services to
           customers worldwide.
         </p>
-        <div className="pt-3 xl:pt-20 flex flex-row gap-5">
+        <div className="pt-3 pb-5 xl:pt-20 flex flex-col sm:flex-row gap-5">
           <Button
-            className="border-colorTop border bg-inherit hover:bg-inherit hover:text-colorTop rounded-xl"
+            className="border-colorTop border bg-inherit hover:bg-inherit hover:text-colorTop rounded-xl max-w-[200px]"
             onClick={() => setIsDialogOpen(true)} // Mở dialog
           >
             MISSION & VISION <FaLongArrowAltRight />
           </Button>
-          <Button className="border-colorTop border bg-inherit hover:bg-inherit hover:text-colorTop rounded-xl">
+          <Button className="border-colorTop border bg-inherit hover:bg-inherit hover:text-colorTop rounded-xl max-w-[200px]">
             OUR TEAM <FaLongArrowAltRight />
           </Button>
         </div>
@@ -57,7 +57,7 @@ const AboutUs = () => {
           height={600}
           src="/assets/FMN_AB_5.gif"
           alt="Picture of the author"
-          className="object-cover w-[200px] h-[200px] xl:w-[600px] xl:h-[600px]"
+          className="object-cover w-[370] h-[370] lg:w-[600px] lg:h-[600px]"
         />
       </div>
 
@@ -66,7 +66,7 @@ const AboutUs = () => {
         onOpenChange={setIsDialogOpen}
         showFooter={false} // Tắt footer nếu không cần
       >
-        <div className=" text-white relative flex flex-row gap-20 w-[800px] ]">
+        <div className=" text-white relative grid grid-cols-2 gap-6 w-full ">
           <button
             onClick={() => setIsDialogOpen(false)}
             className=" text-2xl absolute top-[-20px] right-[-15px]  p-0 py-0 hover:bg-black transition duration-700 ease-in-out"
@@ -83,7 +83,7 @@ const AboutUs = () => {
               and requirements.
             </p>
           </div>
-          <div className="w-[600px]">
+          <div className="w-[500px]">
             <CarouselCustom />
           </div>
         </div>

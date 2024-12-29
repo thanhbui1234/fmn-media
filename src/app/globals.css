@@ -6,7 +6,7 @@ body {
   font-family: 'Reem Kufi', sans-serif !important;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
   overflow-y: auto; /* Cho phép scroll dọc */
   scroll-snap-type: y mandatory; /* Cuộn theo chiều dọc */
   scroll-behavior: smooth; /* Cuộn mượt mà */

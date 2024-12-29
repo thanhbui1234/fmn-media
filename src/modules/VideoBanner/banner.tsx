@@ -1,4 +1,7 @@
 "use client";
+
+// import Image from "next/image";
+
 // import dynamic from "next/dynamic";
 // import Image from "next/image";
 // const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
@@ -22,6 +25,14 @@ const Banner: React.FC = () => {
       >
         <source src="/assets/defaultBanner.mp4" type="video/mp4" />
       </video>
+      {/* <Image
+        style={{ objectFit: "cover" }}
+        className="videoBanner relative top-0 left-0 h-svh lg:h-auto object-cover"
+        src="/assets/video-to-gif-converter.gif"
+        layout="fill"
+        objectFit="cover"
+        alt="hi"
+      /> */}
 
       <div className="absolute inset-0 flex items-center justify-center bg-black/50">
         <h1 className="text-4xl md:text-6xl text-white font-bold text-center">
