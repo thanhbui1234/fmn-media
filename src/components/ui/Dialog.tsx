@@ -9,18 +9,20 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 type DialogCustomProps = {
   triggerText?: string;
-  title: string;
-  description: string;
+  title?: string; // Không bắt buộc nữa vì có thể truyền children
+  description?: string; // Không bắt buộc nữa
   cancelText?: string;
   actionText?: string;
   onAction?: () => void;
   onCancel?: () => void;
-  open?: boolean; // Trạng thái mở/đóng dialog
-  onOpenChange?: (open: boolean) => void; // Callback khi trạng thái thay đổi
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
   showFooter?: boolean;
+  children?: React.ReactNode; // Thêm children
 };
 
 export const DialogCustom = ({
@@ -33,7 +35,8 @@ export const DialogCustom = ({
   onCancel,
   open,
   onOpenChange,
-  showFooter =false ,
+  showFooter = false,
+  children,
 }: DialogCustomProps) => {
   return (
     <AlertDialog open={open} onOpenChange={onOpenChange}>
@@ -44,15 +47,33 @@ export const DialogCustom = ({
         </AlertDialogTrigger>
       )}
       <AlertDialogContent>
-        <AlertDialogHeader>
-          <AlertDialogTitle>{title}</AlertDialogTitle>
-          <AlertDialogDescription>{description}</AlertDialogDescription>
-        </AlertDialogHeader>
-        {showFooter && (
-            <AlertDialogFooter>
-                <AlertDialogCancel onClick={onCancel}>{cancelText}</AlertDialogCancel>
-                <AlertDialogAction onClick={onAction}>{actionText}</AlertDialogAction>
-            </AlertDialogFooter>
+        {children ? (
+          <>
+            {/* Đảm bảo có AlertDialogTitle, nhưng có thể ẩn nếu không cần */}
+            <VisuallyHidden>
+              <AlertDialogTitle>Hidden Title</AlertDialogTitle>
+            </VisuallyHidden>
+            {children}
+          </>
+        ) : (
+          <>
+            <AlertDialogHeader>
+              {title && <AlertDialogTitle>{title}</AlertDialogTitle>}
+              {description && (
+                <AlertDialogDescription>{description}</AlertDialogDescription>
+              )}
+            </AlertDialogHeader>
+            {showFooter && (
+              <AlertDialogFooter>
+                <AlertDialogCancel onClick={onCancel}>
+                  {cancelText}
+                </AlertDialogCancel>
+                <AlertDialogAction onClick={onAction}>
+                  {actionText}
+                </AlertDialogAction>
+              </AlertDialogFooter>
+            )}
+          </>
         )}
       </AlertDialogContent>
     </AlertDialog>

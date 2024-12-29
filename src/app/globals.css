@@ -116,3 +116,19 @@ section {
     @apply bg-background text-foreground;
   }
 }
+
+
+/* Customize the Next and Previous buttons */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #ffcc00 !important; /* Change this to your desired color */
+}
+
+/* Optional: Change hover effect */
+
+
+/* Optional: Customize the size of the buttons */
+.swiper-button-next,
+.swiper-button-prev {
+  font-size: 30px; /* Adjust the size if needed */
+}

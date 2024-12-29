@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { DialogCustom } from "@/components/ui/Dialog";
 import Image from "next/image";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import { IoIosCloseCircleOutline } from "react-icons/io";
+import { CarouselCustom } from "@/components/ui/slide";
 
 const AboutUs = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -60,17 +62,32 @@ const AboutUs = () => {
       </div>
 
       <DialogCustom
-        triggerText="MISSION & VISION" // Text trên button
-        open={isDialogOpen} // Trạng thái mở dialog
-        onOpenChange={setIsDialogOpen} // Cập nhật trạng thái khi đóng/mở
-        title="Our Mission & Vision"
-        description="Our mission is to create impactful projects that inspire and entertain audiences globally. Our vision is to be at the forefront of innovation in the media and entertainment industry."
-        onAction={() => {
-          alert("Action executed!");
-          setIsDialogOpen(false); // Đóng dialog sau hành động
-        }}
-        onCancel={() => setIsDialogOpen(false)} // Đóng dialog khi nhấn Cancel
-      />
+        open={isDialogOpen}
+        onOpenChange={setIsDialogOpen}
+        showFooter={false} // Tắt footer nếu không cần
+      >
+        <div className=" text-white relative flex flex-row gap-20 w-[800px] ]">
+          <button
+            onClick={() => setIsDialogOpen(false)}
+            className=" text-2xl absolute top-[-20px] right-[-15px]  p-0 py-0 hover:bg-black transition duration-700 ease-in-out"
+          >
+            <IoIosCloseCircleOutline size={20} className="text-colorTop" />
+          </button>
+          <div className="max-w-[300px]">
+            <h2 className="text-lg font-bold pt-2 text-colorTop">
+              MISSION & VISION
+            </h2>
+            <p className="text-[16px] pt-4  text-[#ccc] fontText ">
+              We work with closely with brands in order to find the right
+              creative and effective solutions that suit their specific needs
+              and requirements.
+            </p>
+          </div>
+          <div className="w-[600px]">
+            <CarouselCustom />
+          </div>
+        </div>
+      </DialogCustom>
     </section>
   );
 };
