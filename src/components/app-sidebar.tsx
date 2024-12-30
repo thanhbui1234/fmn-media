@@ -67,7 +67,7 @@ export function AppSidebar() {
             <div className="text-black flex gap-3">
               <FaFacebook size={19} />
               <FaTwitter size={19} />
-              <FaInstagram size={19} />
+              <FaInstagram size={19                                                                                             } />
               <FaLinkedin size={19} />
             </div>
           </SidebarGroupLabel>

@@ -6,6 +6,7 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import Banner from "@/modules/VideoBanner/banner";
 import { HeaderMolbie } from "@/components/ui/header";
+import { CollapsibleFooter } from "@/components/ui/CollSpance";
 
 const reemKufi = Reem_Kufi({
   subsets: ["latin"],
@@ -41,6 +42,7 @@ export default function RootLayout({
             {/* </div> */}
           </SidebarProvider>
         </div>
+        <CollapsibleFooter />
       </body>
     </html>
   );
