@@ -6,6 +6,7 @@ import Image from "next/image";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import { CarouselCustom } from "@/components/ui/slide";
+import { FaRegCircle } from "react-icons/fa";
 
 const AboutUs = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -66,25 +67,31 @@ const AboutUs = () => {
         onOpenChange={setIsDialogOpen}
         showFooter={false} // Tắt footer nếu không cần
       >
-        <div className=" text-white relative grid grid-cols-2 gap-6 w-full ">
-          <button
-            onClick={() => setIsDialogOpen(false)}
-            className=" text-2xl absolute top-[-20px] right-[-15px]  p-0 py-0 hover:bg-black transition duration-700 ease-in-out"
-          >
-            <IoIosCloseCircleOutline size={20} className="text-colorTop" />
-          </button>
-          <div className="max-w-[300px]">
-            <h2 className="text-lg font-bold pt-2 text-colorTop">
-              MISSION & VISION
-            </h2>
-            <p className="text-[16px] pt-4  text-[#ccc] fontText ">
-              We work with closely with brands in order to find the right
-              creative and effective solutions that suit their specific needs
-              and requirements.
+        <div className=" text-white relative flex flex-col  justify-around gap-6  h-full    border-b-colorTop ">
+          <div className="  h-[60px] w-auto  flex justify-between px-5  border-b border-b-colorTop">
+            <p className="flex text-center items-center  gap-2">
+              <FaRegCircle />
+              <FaRegCircle />
+              <FaRegCircle />
             </p>
+            <button onClick={() => setIsDialogOpen(false)}>
+              <IoIosCloseCircleOutline size={30} className="text-colorTop" />
+            </button>
           </div>
-          <div className="w-[500px]">
-            <CarouselCustom />
+          <div className="w-full  h-full flex flex-col lg:flex-row justify-around gap-6 p-10">
+            <div className="max-w-[300px]">
+              <h2 className="text-6xl font-bold pt-2 text-colorTop">
+                MISSION & VISION
+              </h2>
+              <p className="text-[16px] pt-4  text-[#ccc] fontText ">
+                We work with closely with brands in order to find the right
+                creative and effective solutions that suit their specific needs
+                and requirements.
+              </p>
+            </div>
+            <div className="w-[55%] ">
+              <CarouselCustom />
+            </div>
           </div>
         </div>
       </DialogCustom>

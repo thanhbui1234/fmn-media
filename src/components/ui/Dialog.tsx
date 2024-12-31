@@ -39,14 +39,14 @@ export const DialogCustom = ({
   children,
 }: DialogCustomProps) => {
   return (
-    <AlertDialog  open={open} onOpenChange={onOpenChange}>
+    <AlertDialog   open={open} onOpenChange={onOpenChange}>
       {/* Trigger Button (Chỉ hiển thị nếu có triggerText) */}
       {triggerText && (
         <AlertDialogTrigger className="btn-primary">
           {triggerText}
         </AlertDialogTrigger>
       )}
-      <AlertDialogContent className="mr-5">
+      <AlertDialogContent className="">
         {children ? (
           <>
             {/* Đảm bảo có AlertDialogTitle, nhưng có thể ẩn nếu không cần */}

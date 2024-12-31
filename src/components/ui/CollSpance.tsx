@@ -33,7 +33,7 @@ export function CollapsibleFooter() {
   };
 
   return (
-    <div className="fixed bottom-10 left-0 right-0 bg-white  border-gray-200 mx-10  rounded-xl shadowFooter border-none">
+    <div className="fixed bottom-10 left-0 right-0 bg-white  border-gray-200 mx-10  rounded-xl shadowFooter border-none xl:hidden">
       <Collapsible
         className="rounded-xl"
         open={isOpen}
