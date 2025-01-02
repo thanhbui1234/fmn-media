@@ -1,13 +1,19 @@
 'use client'
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { DialogCustom } from "@/components/ui/Dialog";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { IoIosCloseCircleOutline } from "react-icons/io";
-import { CarouselCustom } from "@/components/ui/slide";
 import { FaRegCircle } from "react-icons/fa";
 
+const DialogCustom = dynamic(() =>
+  import("@/components/ui/Dialog").then((mod) => mod.DialogCustom)
+);
+
+const CarouselCustom = dynamic(() =>
+  import("@/components/ui/slide").then((mod) => mod.CarouselCustom)
+);
 const AboutUs = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
@@ -16,7 +22,7 @@ const AboutUs = () => {
       id="div1"
       className="snap-start  flex flex-col md:flex-row gap-12 bg-black border-y border-y-[#ffcc00] px-10 xl:pl-[300px] h-[1100px] sm:h-[1000px] md:h-auto  "
     >
-      <div className="w-[600px] flex flex-col pt-12">
+      <div className="w-auto lg:w-[600px] flex flex-col pt-12">
         <h3 className="text-white text-3xl pb-3">Hello! We are</h3>
         <p className="text-[40px] xl:text-[61px] text-white leading-10 ">
           <span className="text-colorTop">Film</span>/
@@ -59,6 +65,8 @@ const AboutUs = () => {
           src="/assets/FMN_AB_5.gif"
           alt="Picture of the author"
           className="object-cover w-[370] h-[370] lg:w-[600px] lg:h-[600px]"
+          priority
+          
         />
       </div>
 
@@ -80,10 +88,10 @@ const AboutUs = () => {
           </div>
           <div className="w-full  h-full flex flex-col lg:flex-row justify-around gap-6 p-10">
             <div className="max-w-[300px]">
-              <h2 className="text-6xl font-bold pt-2 text-colorTop">
+              <h2 className="text-2xl lg:text-6xl font-bold   lg:pt-2 text-colorTop">
                 MISSION & VISION
               </h2>
-              <p className="text-[16px] pt-4  text-[#ccc] fontText ">
+              <p className="text-[12px] lg:text-[16px] pt-4  text-[#ccc] fontText ">
                 We work with closely with brands in order to find the right
                 creative and effective solutions that suit their specific needs
                 and requirements.

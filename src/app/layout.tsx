@@ -5,8 +5,15 @@ import "./globals.css";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import Banner from "@/modules/VideoBanner/banner";
-import { HeaderMolbie } from "@/components/ui/header";
-import { CollapsibleFooter } from "@/components/ui/CollSpance";
+import dynamic from "next/dynamic";
+
+const CollapsibleFooter = dynamic(() =>
+  import("@/components/ui/CollSpance").then((mod) => mod.CollapsibleFooter)
+);
+
+const HeaderMolbie = dynamic(() =>
+  import("@/components/ui/header").then((mod) => mod.HeaderMolbie)
+);
 
 const reemKufi = Reem_Kufi({
   subsets: ["latin"],
