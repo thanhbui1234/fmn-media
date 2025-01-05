@@ -1,21 +1,9 @@
 'use client'
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import { FaLongArrowAltRight } from "react-icons/fa";
-import { IoIosCloseCircleOutline } from "react-icons/io";
-import { FaRegCircle } from "react-icons/fa";
 
-const DialogCustom = dynamic(() =>
-  import("@/components/ui/Dialog").then((mod) => mod.DialogCustom)
-);
-
-const CarouselCustom = dynamic(() =>
-  import("@/components/ui/slide").then((mod) => mod.CarouselCustom)
-);
 const AboutUs = () => {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   return (
     <section
@@ -49,7 +37,6 @@ const AboutUs = () => {
         <div className="pt-3 pb-5 xl:pt-20 flex flex-col sm:flex-row gap-5">
           <Button
             className="border-colorTop border bg-inherit hover:bg-inherit hover:text-colorTop rounded-xl max-w-[200px]"
-            onClick={() => setIsDialogOpen(true)} // Mở dialog
           >
             MISSION & VISION <FaLongArrowAltRight />
           </Button>
@@ -66,43 +53,9 @@ const AboutUs = () => {
           alt="Picture of the author"
           className="object-cover w-[370] h-[370] lg:w-[600px] lg:h-[600px]"
           priority
-          
         />
       </div>
 
-      <DialogCustom
-        open={isDialogOpen}
-        onOpenChange={setIsDialogOpen}
-        showFooter={false} // Tắt footer nếu không cần
-      >
-        <div className=" text-white relative flex flex-col  justify-around gap-6  h-full    border-b-colorTop ">
-          <div className="  h-[60px] w-auto  flex justify-between px-5  border-b border-b-colorTop">
-            <p className="flex text-center items-center  gap-2">
-              <FaRegCircle />
-              <FaRegCircle />
-              <FaRegCircle />
-            </p>
-            <button onClick={() => setIsDialogOpen(false)}>
-              <IoIosCloseCircleOutline size={30} className="text-colorTop" />
-            </button>
-          </div>
-          <div className="w-full  h-full flex flex-col lg:flex-row justify-around gap-6 p-10">
-            <div className="max-w-[300px]">
-              <h2 className="text-2xl lg:text-6xl font-bold   lg:pt-2 text-colorTop">
-                MISSION & VISION
-              </h2>
-              <p className="text-[12px] lg:text-[16px] pt-4  text-[#ccc] fontText ">
-                We work with closely with brands in order to find the right
-                creative and effective solutions that suit their specific needs
-                and requirements.
-              </p>
-            </div>
-            <div className="w-[55%] ">
-              <CarouselCustom />
-            </div>
-          </div>
-        </div>
-      </DialogCustom>
     </section>
   );
 };
